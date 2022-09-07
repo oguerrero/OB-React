@@ -6,7 +6,7 @@ import { Task } from '../../models/task.class'
 import '../../styles/task.scss'
 import { LEVELS } from '../../models/levels.enum'
 
-const TaskComponent = ({ task }) => {
+const TaskComponent = ({ task, complete, remove }) => {
     useEffect(() => {
         console.log('Created task')
         return () => {
@@ -48,9 +48,9 @@ const TaskComponent = ({ task }) => {
      */
     function taskCompletedIcon() {
         if (task.completed) {
-            return <i className='bi-toggle2-on' style={{ color: 'green' }}></i>
+            return <i className='bi-toggle2-on task-action' onClick={() => complete(task)} style={{ color: 'green' }}></i>
         }
-        return <i className='bi-toggle2-off' style={{ color: 'gray' }}></i>
+        return <i className='bi-toggle2-off task-action' onClick={() => complete(task)} style={{ color: 'gray' }}></i>
     }
 
     return (
@@ -68,14 +68,16 @@ const TaskComponent = ({ task }) => {
             <td className='align-middle'>
                 {/* Function for icon depending on task.completed */}
                 {taskCompletedIcon()}
-                <i className='bi-trash' style={{ color: 'tomato' }}></i>
+                <i className='bi-trash task-action' onClick={() => remove(task)} style={{ color: 'tomato' }}></i>
             </td>
         </tr>
     )
 }
 
 TaskComponent.propTypes = {
-    task: PropTypes.instanceOf(Task)
+    task: PropTypes.instanceOf(Task).isRequired,
+    complete: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
 }
 
 export default TaskComponent

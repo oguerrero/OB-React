@@ -45,8 +45,30 @@ const TaskListComponent = () => {
         }
     }, [tasks])
 
-    const changeCompleted = (id) => {
-        console.log('TODO: Cambiar estado de tareas')
+    function completeTask(task) {
+        console.log('>> Complete this task', task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        tempTask[index].completed = !tempTask[index].completed
+
+        // Updating state of Tasks and Task Component with new list
+        setTasks(tempTask)
+    }
+
+    function deleteTask(task) {
+        console.log('>> Delete this task', task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        tempTask.splice(index, 1)
+        setTasks(tempTask)
+    }
+
+    function addTask(task) {
+        console.log('>> Add this task', task)
+        const index = tasks.indexOf(task)
+        const tempTask = [...tasks]
+        tempTask.push(task)
+        setTasks(tempTask)
     }
 
     return (
@@ -77,14 +99,16 @@ const TaskListComponent = () => {
                                         <TaskComponent
                                             key={index}
                                             task={task}
+                                            complete={completeTask}
+                                            remove={deleteTask}
                                         />
                                     )
                                 })}
                             </tbody>
                         </table>
                     </div>
-                    <TaskForm />
                 </div>
+                <TaskForm add={addTask} />
             </div>
         </div>
     )
