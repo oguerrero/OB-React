@@ -1,4 +1,3 @@
-import logo from './logo.svg'
 import './App.css'
 import Greeting from './components/pure/greeting'
 import GreetingF from './components/pure/greetingF'
@@ -12,9 +11,8 @@ import GreetingStyled from './components/pure/greetingStyled'
 function App() {
     return (
         <div className='App'>
-            <header className='App-header'>
-                <img src={logo} className='App-logo' alt='logo' />
-                {/* <TaskListComponent /> */}
+            {/* <header className='App-header'> */}
+                {/* <img src={logo} className='App-logo' alt='logo' /> */}
                 {/* Componente Greeting.jsx*/}
                 {/* <Greeting name='Oscar' /> */}
                 {/* <GreetingF name={'Oscar'} /> */}
@@ -26,8 +24,9 @@ function App() {
                 {/* Todo lo que hay aqui dentro es tratado como props.children 
                     <h3>Contenido del props.children</h3>
                 </Ejemplo4> */}
-                <GreetingStyled name='Oscar' />
-            </header>
+                {/* <GreetingStyled name='Oscar' /> */}
+         {/*    </header> */}
+            <TaskListComponent />
         </div>
     )
 }

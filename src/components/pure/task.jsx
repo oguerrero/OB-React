@@ -14,13 +14,31 @@ const TaskComponent = ({ task }) => {
     }, [task])
 
     return (
-        <div>
+        <tr className='fw-normal'>
+            <th>
+                <span className='ms-2'>{task.name}</span>
+            </th>
+            <td className='align-middle'>
+                <span className='ms-2'>{task.description}</span>
+            </td>
+            <td className='align-middle'>
+            {/* TODO: Crear badge */}
+                <span>{task.level}</span>
+            </td>
+            <td className='align-middle'>
+            {/* TODO: Sustituir por icons */}
+                <span>{task.completed}</span>
+            </td>
+        </tr>
+    )
+    {
+        /* <div>
             <h2 className='task-name'>Nombre: {task.name}</h2>
             <h3>Descripcion: {task.description}</h3>
             <h4>Nivel de la tarea: {task.level}</h4>
             <h5>Completado: {task.completed ? 'COMPLETED' : 'PENDING'}</h5>
-        </div>
-    )
+        </div> */
+    }
 }
 
 TaskComponent.propTypes = {
