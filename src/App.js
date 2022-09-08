@@ -8,6 +8,7 @@ import ComponenteConContexto from './hooks/Ejemplo3'
 import Ejemplo4 from './hooks/Ejemplo4'
 import GreetingStyled from './components/pure/greetingStyled'
 import Father from './components/container/father'
+import OptionalRender from './components/pure/optionalRender'
 
 function App() {
     return (
@@ -29,9 +30,12 @@ function App() {
             {/*    </header> */}
             {/* <Father /> */}
 
+            {/* Ejemplos de renderizado condicional */}
+            <OptionalRender />
+
 
             {/* PROYECTO FINAL */}
-            <TaskListComponent /> 
+            {/* <TaskListComponent />  */}
         </div>
     )
 }
