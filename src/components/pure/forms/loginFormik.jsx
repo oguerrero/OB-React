@@ -17,7 +17,7 @@ const LoginFormik = () => {
 
     return (
         <div>
-            <h1>Log In</h1>
+            <h2>Log In</h2>
             <Formik
                 // Initial Data
                 initialValues={initialCredentials}
@@ -38,6 +38,7 @@ const LoginFormik = () => {
                     handleBlur
                 }) => (
                     <Form>
+                        {/* Email */}
                         <label htmlFor='email'>Email</label>
                         <Field
                             id='email'
@@ -49,6 +50,7 @@ const LoginFormik = () => {
                         {errors.email && touched && (
                             <ErrorMessage component='div' name='email' />
                         )}
+                        {/* Password */}
                         <label htmlFor='password'>Password</label>
                         <Field
                             id='password'
