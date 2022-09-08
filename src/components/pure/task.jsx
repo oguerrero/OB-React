@@ -1,5 +1,7 @@
 import React, { useEffect } from 'react'
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types' 
+
+// Models
 import { Task } from '../../models/task.class'
 
 // Import task.scss
@@ -54,7 +56,7 @@ const TaskComponent = ({ task, complete, remove }) => {
     }
 
     return (
-        <tr className='fw-normal'>
+        <tr className={task.completed ? 'task-completed fw-normal' : 'task-pending fw-normal'} >
             <th>
                 <span className='ms-2'>{task.name}</span>
             </th>

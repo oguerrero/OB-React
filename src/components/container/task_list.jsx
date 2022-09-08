@@ -39,7 +39,9 @@ const TaskListComponent = () => {
     // Control del ciclo de vida
     useEffect(() => {
         console.log('Task state has been modified')
-        setLoading(false)
+        setTimeout(() => {
+            setLoading(false)
+        }, 2000)
         return () => {
             console.log('Task list component is going to unmount...')
         }
@@ -70,6 +72,49 @@ const TaskListComponent = () => {
         setTasks(tempTask)
     }
 
+    const Table = () => {
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th scope='col'>Title</th>
+                        <th scope='col'>Description</th>
+                        <th scope='col'>Priority</th>
+                        <th scope='col'>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {tasks.map((task, index) => {
+                        return (
+                            <TaskComponent
+                                key={index}
+                                task={task}
+                                complete={completeTask}
+                                remove={deleteTask}
+                            />
+                        )
+                    })}
+                </tbody>
+            </table>
+        )
+    }
+
+    let tasksTable =
+        tasks.length === 0 ? (
+            <div>
+                <h4>No pending tasks</h4>
+                <h5>Please, crate one</h5>
+            </div>
+        ) : (
+            <Table />
+        )
+    
+    const loadingStyle = {
+        color: 'gray',
+        fontSize: '30px',
+        fontWeight: 'bold'
+    }
+
     return (
         <div>
             <div className='col-12'>
@@ -83,28 +128,8 @@ const TaskListComponent = () => {
                         className='card-body'
                         data-mdb-perfect-scrollbar='true'
                         style={{ position: 'relative', height: '400px' }}>
-                        <table>
-                            <thead>
-                                <tr>
-                                    <th scope='col'>Title</th>
-                                    <th scope='col'>Description</th>
-                                    <th scope='col'>Priority</th>
-                                    <th scope='col'>Actions</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {tasks.map((task, index) => {
-                                    return (
-                                        <TaskComponent
-                                            key={index}
-                                            task={task}
-                                            complete={completeTask}
-                                            remove={deleteTask}
-                                        />
-                                    )
-                                })}
-                            </tbody>
-                        </table>
+                        {/* TODO: Add Spinner */}
+                        {loading ? <p style={loadingStyle}>LOADING...</p> : tasksTable}
                     </div>
                 </div>
                 <TaskForm add={addTask} />
