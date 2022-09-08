@@ -65,7 +65,6 @@ const TaskListComponent = () => {
 
     function addTask(task) {
         console.log('>> Add this task', task)
-        const index = tasks.indexOf(task)
         const tempTask = [...tasks]
         tempTask.push(task)
         setTasks(tempTask)
