@@ -37,10 +37,10 @@ function App() {
 
             {/* Ejemplos de Formik */}
             {/* <LoginFormik /> */}
-            <RegisterFormik />
+            {/* <RegisterFormik /> */}
 
             {/* PROYECTO FINAL */}
-            {/* <TaskListComponent />   */}
+            <TaskListComponent />  
         </div>
     )
 }

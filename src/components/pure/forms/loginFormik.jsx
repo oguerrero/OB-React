@@ -28,7 +28,8 @@ const LoginFormik = () => {
                     await new Promise((r) => setTimeout(r, 1000))
                     alert(JSON.stringify(values, null, 2))
                     localStorage.setItem('credentials', values)
-                }}>
+                }}
+                className='d-flex justify-content-center align-items-center mb-4'>
                 {({
                     values,
                     touched,

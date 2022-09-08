@@ -6,6 +6,7 @@ import TaskComponent from '../pure/task'
 // Import custom css
 import '../../styles/task.scss'
 import TaskForm from '../pure/forms/taskForm'
+import TaskFormik from '../pure/forms/taskFormik'
 
 const TaskListComponent = () => {
     const defaultTask1 = new Task(
@@ -132,7 +133,8 @@ const TaskListComponent = () => {
                         {loading ? <p style={loadingStyle}>LOADING...</p> : tasksTable}
                     </div>
                 </div>
-                <TaskForm add={addTask} />
+                {/* <TaskForm add={addTask} /> */}
+                <TaskFormik add={addTask} />
             </div>
         </div>
     )
