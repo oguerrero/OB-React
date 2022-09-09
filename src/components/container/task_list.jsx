@@ -109,7 +109,7 @@ const TaskListComponent = () => {
         ) : (
             <Table />
         )
-    
+
     const loadingStyle = {
         color: 'gray',
         fontSize: '30px',
@@ -117,24 +117,32 @@ const TaskListComponent = () => {
     }
 
     return (
-        <div>
-            <div className='col-12'>
-                <div className='card'>
-                    {/* Card header (title) */}
-                    <div className='card-header p-3'>
-                        <h5>Your Tasks:</h5>
+        <div className='container'>
+            <div className='row'>
+                <div className='col col-7'>
+                    <div className='card'>
+                        {/* Card header (title) */}
+                        <div className='card-header p-3'>
+                            <h5>Your Tasks:</h5>
+                        </div>
+                        {/* Card body */}
+                        <div
+                            className='card-body'
+                            data-mdb-perfect-scrollbar='true'
+                            style={{ position: 'relative', height: '400px' }}>
+                            {/* TODO: Add Spinner */}
+                            {loading ? (
+                                <p style={loadingStyle}>LOADING...</p>
+                            ) : (
+                                tasksTable
+                            )}
+                        </div>
                     </div>
-                    {/* Card body */}
-                    <div
-                        className='card-body'
-                        data-mdb-perfect-scrollbar='true'
-                        style={{ position: 'relative', height: '400px' }}>
-                        {/* TODO: Add Spinner */}
-                        {loading ? <p style={loadingStyle}>LOADING...</p> : tasksTable}
-                    </div>
+                    {/* <TaskForm add={addTask} /> */}
                 </div>
-                {/* <TaskForm add={addTask} /> */}
-                <TaskFormik add={addTask} />
+                <div className='col col-5'>
+                    <TaskFormik add={addTask} />
+                </div>
             </div>
         </div>
     )

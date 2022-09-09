@@ -1,7 +1,8 @@
 import React from 'react'
+
 import { useLocation, useNavigate } from 'react-router-dom'
 
-const HomePage = () => {
+const AboutPage = () => {
     const location = useLocation()
     const navigate = useNavigate()
 
@@ -9,13 +10,10 @@ const HomePage = () => {
 
     return (
         <div>
-            <h1>Home Page</h1>
+            <h1>About | FAQS</h1>
             <div>
                 <button onClick={() => navigate('/', { replace: true })}>
                     Go To Home
-                </button>
-                <button onClick={() => navigate('/profile', { replace: true })}>
-                    Go To Profile
                 </button>
                 <button onClick={() => navigate(+1)}>Go Forward</button>
                 <button onClick={() => navigate(-1)}>Go Back</button>
@@ -24,4 +22,4 @@ const HomePage = () => {
     )
 }
 
-export default HomePage
+export default AboutPage

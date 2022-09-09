@@ -30,7 +30,6 @@ const TaskFormik = ({ add }) => {
             .required('Name is Required')
     })
 
-
     // Send data
     function addTask() {
         const newTask = new Task(
@@ -59,7 +58,7 @@ const TaskFormik = ({ add }) => {
             }) => (
                 <Form>
                     {/* Task Name */}
-                    <label htmlFor='name' className='sr-only'>
+                    <label htmlFor='name' className='sr-only my-2'>
                         Task Name
                     </label>
                     <Field
@@ -68,14 +67,14 @@ const TaskFormik = ({ add }) => {
                         placeholder='Task Name'
                         type='text'
                         innerRef={nameRef}
-                        className='form-control form-control-lg'
+                        className='form-control form-control-lg my-1'
                     />
                     {/* Task name Errors */}
                     {errors.name && touched && (
                         <ErrorMessage component='div' name='name' />
                     )}
                     {/* Task Description */}
-                    <label htmlFor='description' className='sr-only'>
+                    <label htmlFor='description' className='sr-only my-2'>
                         Task description
                     </label>
                     <Field
@@ -84,22 +83,22 @@ const TaskFormik = ({ add }) => {
                         placeholder='Task description'
                         type='text'
                         innerRef={descriptionRef}
-                        className='form-control form-control-lg'
+                        className='form-control form-control-lg my-1'
                     />
                     {/* Task Description Errors */}
                     {errors.description && touched && (
                         <ErrorMessage component='div' name='description' />
                     )}
                     {/* Level */}
-                    <label htmlFor='selectLevel' className='sr-only'>
+                    <label htmlFor='selectLevel' className='sr-only my-2'>
                         Priority
                     </label>
                     <Field
                         as='select'
                         id='level'
                         name='level'
-                        innerRef={levelRef}
-                        >
+                        className='form-select my-1'
+                        innerRef={levelRef}>
                         <option value={LEVELS.NORMAL}>Normal</option>
                         <option value={LEVELS.URGENT}>Urgent</option>
                         <option value={LEVELS.BLOCKING}>Blocking</option>
@@ -108,7 +107,7 @@ const TaskFormik = ({ add }) => {
                     {errors.level && touched && (
                         <ErrorMessage component='div' name='level' />
                     )}
-                    <button type='submit'>Submit</button>
+                    <button className='btn btn-info fw-bold rounded-pill text-light ms-3 px-3 py-2 my-2' type='submit'>Submit</button>
                     {isSubmitting ? <p>Creating Task</p> : null}
                 </Form>
             )}
