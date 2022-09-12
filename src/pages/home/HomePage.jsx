@@ -17,6 +17,17 @@ const HomePage = () => {
                 <button onClick={() => navigate('/profile', { replace: true })}>
                     Go To Profile
                 </button>
+                <button
+                    onClick={() =>
+                        navigate('/propspage', {
+                            replace: true,
+                            state: {
+                                online: "1npm install @mui/material @emotion/react @emotion/styled"
+                            }
+                        })
+                    }>
+                    Go To State
+                </button>
                 <button onClick={() => navigate(+1)}>Go Forward</button>
                 <button onClick={() => navigate(-1)}>Go Back</button>
             </div>

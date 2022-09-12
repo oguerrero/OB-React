@@ -1,8 +1,19 @@
-import React from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useEffect } from 'react'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const ProfilePage = () => {
     const navigate = useNavigate()
+    let logged = localStorage.getItem('credentials')
+
+    useEffect(() => {
+        logged = localStorage.getItem('credentials')
+    },[])
+
+    if (!logged) {
+        console.log('You must be logged in')
+        alert('You must be logged in')
+        return(<Navigate replace to='/login' />)
+    }
 
     return (
         <div>

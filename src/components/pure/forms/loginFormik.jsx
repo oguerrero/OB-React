@@ -1,6 +1,7 @@
 import React from 'react'
 import { Formik, Field, Form, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
+import { Navigate, useNavigate } from 'react-router-dom'
 
 const loginSchema = Yup.object().shape({
     email: Yup.string()
@@ -10,6 +11,9 @@ const loginSchema = Yup.object().shape({
 })
 
 const LoginFormik = () => {
+
+    const navigate = useNavigate()
+
     const initialCredentials = {
         email: '',
         password: ''
@@ -27,7 +31,8 @@ const LoginFormik = () => {
                 onSubmit={async (values) => {
                     await new Promise((r) => setTimeout(r, 1000))
                     alert(JSON.stringify(values, null, 2))
-                    localStorage.setItem('credentials', values)
+                    await localStorage.setItem('credentials', values)
+                    navigate('/profile', { replace: true })
                 }}
                 className='d-flex justify-content-center align-items-center mb-4'>
                 {({
