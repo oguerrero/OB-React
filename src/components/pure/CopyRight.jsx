@@ -8,7 +8,7 @@ const CopyRight = () => {
     return (
         <Typography variant='body2' color='GrayText' align='center'>
             <span>
-                <p>Copyright</p>
+                <span>Copyright</span>
                 <CopyrightIcon color='inherit' />
             </span>
             <Link color='inherit' href='https:google.com'>

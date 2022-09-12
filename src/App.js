@@ -11,6 +11,10 @@ import Father from './components/container/father'
 import OptionalRender from './components/pure/optionalRender'
 import LoginFormik from './components/pure/forms/loginFormik'
 import RegisterFormik from './components/pure/forms/registerFormik'
+import AsyncExample from './components/pure/asyncExample'
+import ObservableExample from './components/pure/observableExample'
+import FetchExample from './components/pure/fetchExample'
+import AxiosExample from './components/pure/axiosExample'
 
 function App() {
     return (
@@ -39,8 +43,14 @@ function App() {
             {/* <LoginFormik /> */}
             {/* <RegisterFormik /> */}
 
+            {/* Ejemplos de procesos asincronos */}
+            {/* <AsyncExample /> */}
+            {/* <ObservableExample /> */}
+            {/* <FetchExample /> */}
+            <AxiosExample />
+
             {/* PROYECTO FINAL */}
-            <TaskListComponent />  
+            {/* <TaskListComponent />  */}
         </div>
     )
 }
