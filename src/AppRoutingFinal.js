@@ -1,3 +1,4 @@
+import { useEffect } from 'react'
 import {
     BrowserRouter as Router,
     Routes,
@@ -12,7 +13,11 @@ import DashBoard from './pages/dashboard/DashBoard'
 function AppRoutingFinal() {
 
     // TODO: Create real session storage
-    let loggedIn = false
+    let loggedIn = localStorage.getItem('credentials')
+
+    useEffect(() => {
+        loggedIn = localStorage.getItem('credentials')
+    }, [])
     return (
         <div>
             <Router>
