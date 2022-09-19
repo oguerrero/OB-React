@@ -4,7 +4,7 @@ import {
     getAllUsers,
     getUserDetails,
     login
-} from '../services/fetchService'
+} from '../../services/fetchService'
 
 const FetchExample = () => {
     const [users, setUsers] = useState([])

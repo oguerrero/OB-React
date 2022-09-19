@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { getNumbers } from '../services/observableService'
+import { getNumbers } from '../../services/observableService'
 
 const ObservableExample = () => {
     const [number, setNumber] = useState(0)

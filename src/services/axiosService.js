@@ -1,4 +1,4 @@
-import axios from '../../utils/config/axios.config'
+import axios from '../utils/config/axios.config'
 
 export default function getRandomUser() {
     return axios.get('/', {

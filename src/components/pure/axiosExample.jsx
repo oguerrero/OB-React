@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import getRandomUser from '../services/axiosService'
+import getRandomUser from '../../services/axiosService'
 
 const AxiosExample = () => {
     const [user, setUser] = useState(null)
@@ -17,7 +17,7 @@ const AxiosExample = () => {
 
     return (
         <div>
-            <h1>Axios Example</h1>
+            <h1>Chuck</h1>
             {user != null ? (
                 <div>
                     <h2>{user.title}</h2>
